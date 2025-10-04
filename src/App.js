@@ -41,21 +41,22 @@ function App() {
         <h2>My Portfolio Projects</h2>
         <div className="project-list">
           <div className="project-item">
-            <img src="/images/bb.png" alt="Blubean Cafe" className="project-thumb"/>
+            <img src={process.env.PUBLIC_URL + "/images/bb.png"} alt="Blubean Cafe" className="project-thumb" />
+
             <h3>Blubean Cafe</h3>
             <p>Modern café website with menu, order, and cozy vibes.</p>
             <a href="https://meghanaravuri06.github.io/website1/" target="_blank" rel="noopener noreferrer">View Live Site</a>
             <a href="https://github.com/MeghanaRavuri06/website1" target="_blank" rel="noopener noreferrer">View Code</a>
           </div>
           <div className="project-item">
-            <img src="/images/nn.png" alt="Narico Naturals" className="project-thumb"/>
+            <img src={process.env.PUBLIC_URL + "/images/nn.png"} alt="Narico Naturals" className="project-thumb"/>
             <h3>Narico Naturals</h3>
             <p>Eco-friendly soaps & oils empowering local makers.</p>
             <a href="https://meghanaravuri06.github.io/website2/" target="_blank" rel="noopener noreferrer">View Live Site</a>
             <a href="https://github.com/MeghanaRavuri06/website2" target="_blank" rel="noopener noreferrer">View Code</a>
           </div>
           <div className="project-item">
-            <img src="/images/b.png" alt="Bloom & Co" className="project-thumb"/>
+            <img src={process.env.PUBLIC_URL + "/images/b.png"} alt="Bloom & Co" className="project-thumb"/>
             <h3>Flowers Ordering App</h3>
             <p>Beautiful bouquets and plant deliveries, made simple.</p>
             <a href="https://meghanaravuri06.github.io/website3/" target="_blank" rel="noopener noreferrer">View Live Site</a>
@@ -78,7 +79,7 @@ function App() {
         <h2>Let's Work Together!</h2>
         <p>Email: <a href="mailto:ugc.meghana@email.com">ugc.meghana@email.com</a></p>
         <p>
-          <a href="https://linkedin.com/in/yourlinkedin" target="_blank" rel="noopener noreferrer">LinkedIn</a> |
+          <a href="https://www.linkedin.com/in/meghana-ravuri334297" target="_blank" rel="noopener noreferrer">LinkedIn</a> |
           <a href="https://github.com/MeghanaRavuri06" target="_blank" rel="noopener noreferrer">GitHub</a>
         </p>
       </section>
