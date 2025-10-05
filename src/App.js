@@ -1,8 +1,51 @@
 // src/App.js
-import React from "react";
+import React, { useEffect } from "react";
 import './App.css';
 
 function App() {
+
+  // 🌸 Smooth scroll, ripple, and fade-up animations
+  useEffect(() => {
+    // Smooth Scroll for navigation links (if you have nav links)
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener("click", function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute("href")).scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+      });
+    });
+
+    // Button ripple animation (for your hero button)
+    const buttons = document.querySelectorAll(".hero-btn");
+    buttons.forEach(btn => {
+      btn.addEventListener("click", function (e) {
+        const ripple = document.createElement("span");
+        ripple.classList.add("ripple");
+        ripple.style.left = e.offsetX + "px";
+        ripple.style.top = e.offsetY + "px";
+        this.appendChild(ripple);
+        setTimeout(() => ripple.remove(), 600);
+      });
+    });
+
+    // Animate sections when scrolled into view
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("fade-up-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll("section").forEach(section => {
+      section.classList.add("fade-up-hidden");
+      observer.observe(section);
+    });
+  }, []);
+
   return (
     <div className="portfolio">
       {/* HERO SECTION */}
@@ -14,6 +57,7 @@ function App() {
         </p>
         <a href="#contact" className="hero-btn">Let's Connect</a>
       </section>
+      
 
       {/* ABOUT SECTION */}
       <section className="about">
@@ -42,7 +86,6 @@ function App() {
         <div className="project-list">
           <div className="project-item">
             <img src={process.env.PUBLIC_URL + "/images/bb.png"} alt="Blubean Cafe" className="project-thumb" />
-
             <h3>Blubean Cafe</h3>
             <p>Modern café website with menu, order, and cozy vibes.</p>
             <a href="https://meghanaravuri06.github.io/website1/" target="_blank" rel="noopener noreferrer">View Live Site</a>
